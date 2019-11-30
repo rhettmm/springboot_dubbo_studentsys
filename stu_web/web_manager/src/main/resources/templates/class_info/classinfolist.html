@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>所有班级信息</title>
+</head>
+<body>
+    <table border="1px">
+        <tr>
+            <td>选择</td>
+            <td>编号</td>
+            <td>班级名</td>
+            <td>班级人数</td>
+            <td>操作</td>
+        </tr>
+        <tr th:each="class : ${classlist}">
+            <td ><input type="checkbox" name="checkOne" th:value="${class.id}" /></td>
+            <td th:text="${class.id}">编号</td>
+            <td th:text="${class.cname}">班级名</td>
+            <td th:text="${class.studentSum}">班级人数</td>
+            <td ><a th:href="|class/toModifyClass?id=${class.id}|">修改</a> | <a th:href="|class/toDelClass?id=${class.id}|">删除</a></td>
+        </tr>
+    </table>
+</body>
+</html>

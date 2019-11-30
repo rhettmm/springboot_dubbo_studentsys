@@ -1,0 +1,13 @@
+server:
+  port: 80
+
+dubbo:
+  application:
+    #dubbo注册名
+    name: web-manager
+  registry:
+    #dubbo注册地址
+    address: zookeeper://192.168.237.129:2181
+    #首次启动不检查消费者
+  consumer:
+    check: false

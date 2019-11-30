@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生详情页面</title>
+</head>
+<body>
+    <table border="1px">
+        <tr>
+            <td>选择</td>
+            <td>编号</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>班级</td>
+            <td>操作</td>
+        </tr>
+
+        <tr th:each="stu :${stuList}">
+            <td ><input type="checkbox" name="checkOne" th:value="${stu.id}" /></td>
+            <td th:text="${stu.id}">编号</td>
+            <td th:text="${stu.sname}">姓名</td>
+            <td th:text="${stu.age}">年龄</td>
+            <td th:text="${stu.classInfo.cname}">班级</td>
+            <td><a th:href="|/stu/toModifyStu?id=${stu.id}|">修改</a><a th:href="|/stu/delStu?id=${stu.id}|">删除</a></td>
+        </tr>
+    </table>
+</body>
+</html>
